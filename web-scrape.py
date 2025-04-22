@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import urllib.request
 
 URL = "https://mmmut.ac.in/ExaminationSchedule"
 urlNEW = "https://mmmut.ac.in/"
@@ -15,5 +16,7 @@ for tr in trs[:10]:
     link = a['href']
     
     completeLink = urlNEW + link
+    urllib.request.urlretrieve(completeLink, f"{link}")
+    
     print(completeLink)
 
