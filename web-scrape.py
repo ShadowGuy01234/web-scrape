@@ -6,6 +6,9 @@ urlNEW = "https://mmmut.ac.in/"
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.text, 'html.parser')
-res = soup.find('table',{ 'id' : "ContentPlaceHolder2_ContentPlaceHolder3_GridView1"} )
-print(res.prettify)
+table = soup.find('table',{ 'id' : "ContentPlaceHolder2_ContentPlaceHolder3_GridView1"} )
+# print(table.prettify)
+trs = table.find_all('tr')
+for tr in trs[:10]:
+    print(list(tr))
 
