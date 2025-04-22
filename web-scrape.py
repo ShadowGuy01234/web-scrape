@@ -12,5 +12,8 @@ trs = table.find_all('tr')
 for tr in trs[:10]:
     # print(list(tr))
     a = tr.find('td').find('a').attrs
-    print(a)
+    link = a['href']
+    
+    completeLink = urlNEW + link
+    print(completeLink)
 
