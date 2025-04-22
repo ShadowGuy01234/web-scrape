@@ -10,5 +10,7 @@ table = soup.find('table',{ 'id' : "ContentPlaceHolder2_ContentPlaceHolder3_Grid
 # print(table.prettify)
 trs = table.find_all('tr')
 for tr in trs[:10]:
-    print(list(tr))
+    # print(list(tr))
+    a = tr.find('td').find('a').attrs
+    print(a)
 
