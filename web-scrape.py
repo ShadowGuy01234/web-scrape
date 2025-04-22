@@ -6,6 +6,6 @@ urlNEW = "https://mmmut.ac.in/"
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.text, 'html.parser')
-res = soup.find('div', class_ = 'col-lg-9')
+res = soup.find('table',{ 'id' : "ContentPlaceHolder2_ContentPlaceHolder3_GridView1"} )
 print(res.prettify)
 
