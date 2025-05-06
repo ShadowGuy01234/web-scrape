@@ -1,9 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
-import urllib.request
 
 def notice_scrape():
-
     URL = "https://mmmut.ac.in/ExaminationSchedule"
     urlNEW = "https://mmmut.ac.in/"
     page = requests.get(URL)
@@ -13,15 +11,20 @@ def notice_scrape():
     # print(table.prettify)
 
     links_list = []
+    link_title = []
     trs = table.find_all('tr')
+    
     for tr in trs[:10]:
-        # print(list(tr))
-        a = tr.find('td').find('a').attrs
+        a = tr.find('a').attrs
         link = a['href']
         completeLink = urlNEW + link
+        clean_filename = link.replace("Download/", "")
         links_list.append(completeLink)
+        link_title.append(clean_filename)
+    
+    return {
+        "links_list": links_list,
+        "link_titles": link_title
+    }
 
-    return links_list    
-        
-    
-    
+
